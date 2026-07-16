@@ -52,7 +52,11 @@ app = modal.App(_HERE.name)
 
 image = (
     modal.Image.debian_slim(python_version="3.10")
-    .apt_install("git", "libgl1", "libglib2.0-0", "fonts-dejavu-core")
+    .apt_install(
+        "git", "libgl1", "libglib2.0-0", "fonts-dejavu-core",
+        # open3d runtime libs (imported at module load by inference/utils_3d)
+        "libegl1", "libgomp1",
+    )
     .pip_install(
         "torch==2.5.1",
         "torchvision==0.20.1",
@@ -69,6 +73,11 @@ image = (
         "numpy==1.26.4",
         "Pillow==11.2.1",
         "tqdm==4.67.1",
+        # inference/utils_3d imports these at module load even though the
+        # five mounted slots never run recon3d / camera pose.
+        "open3d==0.19.0",
+        "trimesh==4.12.2",
+        "scipy==1.15.3",
     )
     .run_commands(
         f"git clone {REPO_URL} {REPO_DIR}",
