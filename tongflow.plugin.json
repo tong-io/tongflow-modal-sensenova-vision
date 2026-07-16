@@ -1,0 +1,25 @@
+{
+    "plugin": {
+        "name": "SenseNova-Vision",
+        "description": "SenseTime SenseNova-Vision 7B unified vision model: visual QA, detection/OCR-style structured text, surface normals, salient-object matting, and human keypoint overlay.",
+        "icon": "/plugins/tongflow-modal-sensenova-vision.svg"
+    },
+    "env": [
+        {
+            "key": "MODAL_TOKEN_ID",
+            "required": true,
+            "description": "Modal token id",
+            "url": "https://modal.com/settings/tokens"
+        },
+        {
+            "key": "MODAL_TOKEN_SECRET",
+            "required": true,
+            "description": "Modal token secret (paired with MODAL_TOKEN_ID)"
+        },
+        {
+            "key": "TONGFLOW_MODAL_CALL_TIMEOUT_S",
+            "default": "1800",
+            "description": "Max seconds to wait for a Modal call"
+        }
+    ]
+}
