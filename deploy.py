@@ -32,6 +32,11 @@ from tongflow.node_slots import NodeSlots
 from tongflow.protocol import asset, prompt_media_to_bytes
 from tongflow.slots import node_slot
 
+# Slots this plugin is the default implementation of: the node picker lists
+# it first and a newly added node preselects it. Read statically by the
+# scanner (never executed), so any SDK version imports this file fine.
+TONGFLOW_DEFAULT_SLOTS = ["image-describe", "image-gen-text"]
+
 REPO_URL = "https://github.com/OpenSenseNova/SenseNova-Vision.git"
 # Pin the upstream revision so redeploys are reproducible (main moves).
 REPO_REV = "beea1f771b8192c597085c0e668f4430d2089d8d"
