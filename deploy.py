@@ -88,7 +88,7 @@ image = (
         f"git clone {REPO_URL} {REPO_DIR}",
         f"git -C {REPO_DIR} checkout {REPO_REV}",
     )
-    .pip_install("tongflow==0.2.20")
+    .pip_install("tongflow==0.2.21")
     .env(
         {
             "HF_HOME": "/models/hf",
