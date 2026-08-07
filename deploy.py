@@ -116,7 +116,7 @@ with image.imports():
     memory=32768,
     volumes={"/models": volume},
     timeout=3600,
-    scaledown_window=300,
+    scaledown_window=2,
 )
 class Inference:
     @modal.enter()
